@@ -8,117 +8,92 @@
   <style>
     body {
       margin: 0;
+      padding: 0;
       font-family: 'Orbitron', sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1584270354949-1d7d53b9e3d6?auto=format&fit=crop&w=1920&q=80');
+      background: url('https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    header {
-      margin-top: 40px;
+      color: #fff;
       text-align: center;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 20px;
-      border-radius: 20px;
     }
 
-    header h1 {
-      font-size: 3rem;
-      color: #00ffe1;
-      text-shadow: 0 0 10px #00ffe1;
+    h1 {
+      font-size: 3em;
+      margin-top: 40px;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff;
     }
 
-    .telegram-button {
-      margin-top: 15px;
-      background: #0088cc;
-      color: white;
-      padding: 12px 24px;
+    .telegram-btn {
+      background-color: #0088cc;
+      color: #fff;
+      padding: 10px 25px;
       border: none;
-      border-radius: 25px;
-      font-size: 1rem;
+      border-radius: 30px;
+      margin: 20px;
+      font-size: 1em;
       cursor: pointer;
-      transition: background 0.3s;
       text-decoration: none;
       display: inline-block;
+      box-shadow: 0 0 10px #0088cc;
     }
 
-    .telegram-button:hover {
-      background: #0077b3;
-    }
-
-    .card-container {
+    .cards {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      margin: 40px 0;
+      flex-wrap: wrap;
       gap: 30px;
+      padding: 40px;
     }
 
     .card {
-      background-color: rgba(0, 0, 0, 0.7);
-      border: 2px solid #00ffe1;
+      background-color: rgba(0, 0, 0, 0.6);
+      border: 2px solid #00ffff;
       border-radius: 15px;
-      padding: 20px;
       width: 240px;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 20px;
       text-decoration: none;
-      color: white;
+      color: #fff;
+      transition: transform 0.3s ease;
     }
 
     .card:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 20px #00ffe1;
+      box-shadow: 0 0 15px #00ffff;
     }
 
     .card img {
       width: 100%;
+      height: auto;
       border-radius: 10px;
-      margin-bottom: 15px;
     }
 
     .card p {
-      margin: 0;
-      font-size: 1rem;
+      margin-top: 15px;
+      font-size: 1.1em;
     }
 
-    footer {
-      padding: 20px;
-      font-size: 0.8rem;
-      color: #ccc;
-      background: rgba(0, 0, 0, 0.5);
-      width: 100%;
-      text-align: center;
+    @media screen and (max-width: 600px) {
+      .cards {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
+  <h1>shaslik1</h1>
+  <a href="https://t.me/your_telegram" target="_blank" class="telegram-btn">💬 Contact on Telegram</a>
 
-  <header>
-    <h1>shaslik1</h1>
-    <a href="https://t.me/Xbt1w" class="telegram-button" target="_blank">💬 Message on Telegram</a>
-  </header>
-
-  <section class="card-container">
-    <a class="card" href="https://www.youtube.com/watch?v=5ZZ8uUjJ0q8" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="Cristiano Ronaldo">
-      <p>🐐 Cristiano Ronaldo (2018 Highlights)</p>
+  <div class="cards">
+    <a class="card" href="https://www.youtube.com/watch?v=mmeLCAP74KA" target="_blank">
+      <img src="https://cdn.vox-cdn.com/thumbor/AX9ek3WvxtM6QkWmlShslpKyUQ4=/0x0:2730x4096/1200x0/filters:focal(0x0:2730x4096):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/24280171/1247992406.jpg" alt="Cristiano Ronaldo 2018" />
+      <p>🐐 Cristiano Ronaldo (2018)</p>
     </a>
 
-    <a class="card" href="https://www.youtube.com/watch?v=9WfUzBMRzDk" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/S1mple_IEM_Katowice_2020.jpg" alt="s1mple CS2">
-      <p>🎯 s1mple (CS2 Best Plays)</p>
+    <a class="card" href="https://www.youtube.com/watch?v=PqJXHi7oBNo" target="_blank">
+      <img src="https://cdn.oneesports.gg/cdn-data/2023/03/CSGO_NAVI_s1mple_PGLMajorStockholm2021.jpg" alt="s1mple CS2 Prime" />
+      <p>🎯 s1mple (CS2 Prime)</p>
     </a>
-  </section>
-
-  <footer>
-    &copy; 2025 shaslik1 — All rights reserved.
-  </footer>
-
+  </div>
 </body>
 </html>
