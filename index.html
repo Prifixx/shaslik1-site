@@ -2,15 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>shaslik1 - Vibe Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>shaslik1 - Imba Page</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: 'Orbitron', sans-serif;
-      background: url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background: url('https://cdn.pixabay.com/photo/2013/07/18/10/56/space-164681_1280.jpg') no-repeat center center fixed;
       background-size: cover;
       background-color: #000;
       color: #fff;
@@ -52,15 +52,8 @@
       z-index: 1;
     }
 
-    .floating-text.top {
-      top: 0;
-      animation-name: floatTop;
-    }
-
-    .floating-text.bottom {
-      bottom: 0;
-      animation-name: floatBottom;
-    }
+    .floating-text.top { top: 0; animation-name: floatTop; }
+    .floating-text.bottom { bottom: 0; animation-name: floatBottom; }
 
     @keyframes floatTop {
       0% { transform: translateY(-30px); opacity: 0.2; }
@@ -101,6 +94,18 @@
       font-size: 1.1em;
     }
 
+    #music-btn {
+      background-color: #ff5ec9;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      margin-top: 20px;
+      font-size: 1em;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff5ec9;
+    }
+
     @media screen and (max-width: 768px) {
       .video-card {
         width: 90%;
@@ -110,23 +115,33 @@
 </head>
 <body>
 
-  <!-- Фоновая музыка -->
-  <audio id="bgMusic" autoplay loop>
-    <source src="https://files.catbox.moe/svjup0.mp3" type="audio/mpeg" />
-    Your browser does not support the audio element.
-  </audio>
-  <script>
-    const audio = document.getElementById('bgMusic');
-    audio.volume = 0.12; // Тихо, но уже заметно слышно
-  </script>
-
   <!-- Плавающий текст -->
   <div class="floating-text top">💗 Стояк Роналду Имба 💗</div>
   <div class="floating-text bottom">💗 Стояк Роналду Имба 💗</div>
 
   <!-- Заголовок -->
   <h1>shaslik1</h1>
+
+  <!-- Telegram -->
   <a href="https://t.me/Xbt1w" target="_blank" class="telegram-btn">💬 Contact on Telegram</a>
+
+  <!-- Кнопка запуска музыки -->
+  <button id="music-btn">▶ Включить музыку</button>
+
+  <!-- Музыка -->
+  <audio id="bgMusic" loop>
+    <source src="https://files.catbox.moe/svjup0.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script>
+    const musicBtn = document.getElementById('music-btn');
+    const audio = document.getElementById('bgMusic');
+    musicBtn.addEventListener('click', () => {
+      audio.volume = 0.12;
+      audio.play();
+      musicBtn.style.display = 'none';
+    });
+  </script>
 
   <!-- Видео -->
   <div class="video-section">
@@ -145,4 +160,3 @@
 
 </body>
 </html>
-
