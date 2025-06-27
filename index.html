@@ -1,21 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>shaslik1 - Imba Page</title>
+  <title>shaslik1 - Ultimate</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- Dino game -->
+  <script src="https://cdn.jsdelivr.net/gh/chinchang/dino@latest/dino.min.js"></script>
+
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       font-family: 'Orbitron', sans-serif;
-      background: url('https://cdn.pixabay.com/photo/2013/07/18/10/56/space-164681_1280.jpg') no-repeat center center fixed;
+      background: url('https://ybis.ru/wp-content/uploads/2023/09/temnyi-kosmos-66.webp') no-repeat center center fixed;
       background-size: cover;
-      background-color: #000;
       color: #fff;
-      text-align: center;
       overflow-x: hidden;
+    }
+
+    #particles-js {
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
     }
 
     h1 {
@@ -23,20 +35,7 @@
       margin-top: 60px;
       color: #00ffff;
       text-shadow: 0 0 10px #00ffff;
-    }
-
-    .telegram-btn {
-      background-color: #0088cc;
-      color: #fff;
-      padding: 12px 28px;
-      border: none;
-      border-radius: 30px;
-      margin: 20px;
-      font-size: 1em;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 0 10px #0088cc;
-      display: inline-block;
+      text-align: center;
     }
 
     .floating-text {
@@ -47,9 +46,8 @@
       color: #ff5ec9;
       font-weight: bold;
       text-shadow: 0 0 10px #ff5ec9, 0 0 20px #ff5ec9;
-      animation: float 5s ease-in-out infinite alternate;
+      animation: float 4s ease-in-out infinite alternate;
       pointer-events: none;
-      z-index: 1;
     }
 
     .floating-text.top { top: 0; animation-name: floatTop; }
@@ -65,12 +63,42 @@
       100% { transform: translateY(-20px); opacity: 1; }
     }
 
+    .telegram-btn {
+      background-color: #0088cc;
+      color: #fff;
+      padding: 12px 28px;
+      border: none;
+      border-radius: 30px;
+      margin: 20px auto;
+      font-size: 1em;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+      width: fit-content;
+      box-shadow: 0 0 10px #0088cc;
+    }
+
+    #music-btn {
+      background-color: #ff5ec9;
+      color: #fff;
+      padding: 12px 28px;
+      border-radius: 30px;
+      font-size: 1em;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff5ec9;
+      margin: 10px auto 30px;
+      display: block;
+    }
+
     .video-section {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 40px;
       padding: 40px;
+      position: relative;
+      z-index: 1;
     }
 
     .video-card {
@@ -79,7 +107,13 @@
       padding: 15px;
       border-radius: 15px;
       border: 2px solid #00ffff;
-      box-shadow: 0 0 10px #00ffff;
+      box-shadow: 0 0 15px #00ffff;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .video-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ffffff;
     }
 
     iframe {
@@ -94,16 +128,15 @@
       font-size: 1.1em;
     }
 
-    #music-btn {
-      background-color: #ff5ec9;
-      color: #fff;
-      padding: 10px 20px;
-      border-radius: 30px;
-      margin-top: 20px;
-      font-size: 1em;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 0 10px #ff5ec9;
+    #dino-game {
+      margin: 60px auto;
+      width: 800px;
+      max-width: 95%;
+      background: #111;
+      border: 2px solid #00ffff;
+      border-radius: 20px;
+      padding: 10px;
+      box-shadow: 0 0 15px #00ffff;
     }
 
     @media screen and (max-width: 768px) {
@@ -115,48 +148,75 @@
 </head>
 <body>
 
-  <!-- Плавающий текст -->
+  <div id="particles-js"></div>
+
   <div class="floating-text top">💗 Стояк Роналду Имба 💗</div>
   <div class="floating-text bottom">💗 Стояк Роналду Имба 💗</div>
 
-  <!-- Заголовок -->
   <h1>shaslik1</h1>
 
-  <!-- Telegram -->
-  <a href="https://t.me/Xbt1w" target="_blank" class="telegram-btn">💬 Contact on Telegram</a>
+  <a href="https://t.me/Xbt1w" target="_blank" class="telegram-btn">💬 Связаться в Telegram</a>
 
-  <!-- Кнопка запуска музыки -->
-  <button id="music-btn">▶ Включить музыку</button>
+  <button id="music-btn">🎵 Играть музыку</button>
 
-  <!-- Музыка -->
   <audio id="bgMusic" loop>
     <source src="https://files.catbox.moe/svjup0.mp3" type="audio/mpeg" />
   </audio>
 
   <script>
-    const musicBtn = document.getElementById('music-btn');
+    const btn = document.getElementById('music-btn');
     const audio = document.getElementById('bgMusic');
-    musicBtn.addEventListener('click', () => {
+    btn.addEventListener('click', () => {
       audio.volume = 0.12;
       audio.play();
-      musicBtn.style.display = 'none';
+      btn.style.display = 'none';
     });
   </script>
 
-  <!-- Видео -->
   <div class="video-section">
-    <!-- s1mple -->
     <div class="video-card">
       <iframe src="https://www.youtube.com/embed/PqJXHi7oBNo" allowfullscreen></iframe>
       <div class="video-title">🎯 s1mple in CS2 Prime</div>
     </div>
-
-    <!-- Ronaldo -->
     <div class="video-card">
       <iframe src="https://www.youtube.com/embed/mmeLCAP74KA" allowfullscreen></iframe>
       <div class="video-title">🐐 Cristiano Ronaldo 2018</div>
     </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/aJ-AUIkBX_Y" allowfullscreen></iframe>
+      <div class="video-title">🥊 Mike Tyson Highlights</div>
+    </div>
   </div>
+
+  <div id="dino-game"></div>
+  <script>
+    dino({
+      el: '#dino-game',
+      maxJumpHeight: 100,
+      obstacleInterval: 2000,
+      gravity: 1,
+      speed: 5
+    });
+  </script>
+
+  <script>
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: "#ffffff" },
+        shape: { type: "circle" },
+        opacity: { value: 0.5, random: true },
+        size: { value: 2, random: true },
+        move: {
+          enable: true,
+          speed: 1,
+          direction: "none",
+          random: false,
+          out_mode: "out"
+        }
+      }
+    });
+  </script>
 
 </body>
 </html>
