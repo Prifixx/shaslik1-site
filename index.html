@@ -94,17 +94,21 @@
       margin-top: 10px;
     }
 
-    /* Gojo Image Style */
-    .gojo-image {
+    .character-left, .character-right {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 160px;
-      max-height: 160px;
-      z-index: 1000;
+      bottom: 0;
+      z-index: 999;
+      max-height: 300px;
       pointer-events: none;
-      opacity: 0.95;
-      filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.8));
+      user-select: none;
+    }
+
+    .character-left {
+      left: 10px;
+    }
+
+    .character-right {
+      right: 10px;
     }
   </style>
 </head>
@@ -140,8 +144,9 @@
     </div>
   </div>
 
-  <!-- ✅ Gojo image added here -->
-  <img class="gojo-image" src="50170cd8-e502-46e4-ba01-238b17e770b4.png" alt="Gojo Satoru" />
+  <!-- Characters -->
+  <img class="character-left" src="https://pngfre.com/wp-content/uploads/1000111693.png" alt="Character Left">
+  <img class="character-right" src="https://pngfre.com/wp-content/uploads/satoru-gojo-5-768x946.png" alt="Gojo Satoru">
 
   <script>
     let playlist = [
