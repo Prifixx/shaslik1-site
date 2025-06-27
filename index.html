@@ -5,141 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>shaslik1 Vibe</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: Arial, sans-serif;
-      background: url('https://ybis.ru/wp-content/uploads/2023/09/temnyi-kosmos-66.webp') no-repeat center center fixed;
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://ybis.ru/wp-content/uploads/2023/09/temnyi-kosmos-66.webp');
       background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       color: white;
-      transition: background 0.5s, color 0.5s;
+      transition: all 0.5s ease;
     }
-    body.light-mode {
-      background: url('https://images.unsplash.com/photo-1619252584172-a83a949b6efd?w=600&auto=format&fit=crop&q=60') no-repeat center center fixed;
-      background-size: cover;
-      color: black;
-    }
-    header {
+    .container {
       text-align: center;
       padding: 2rem;
-      font-size: 2rem;
-      font-weight: bold;
-      animation: flicker 2s infinite;
     }
-    @keyframes flicker {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.5; }
+    h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 10px #fff;
+      animation: fadeInDown 2s ease;
     }
-    .videos {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      align-items: center;
+    @keyframes fadeInDown {
+      0% { opacity: 0; transform: translateY(-50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .video-section {
       margin: 2rem 0;
     }
     iframe {
       width: 90%;
-      max-width: 600px;
+      max-width: 560px;
       height: 315px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.5);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+      margin-bottom: 2rem;
     }
-    .player {
-      text-align: center;
-      margin: 2rem;
-    }
-    .player audio {
-      width: 80%;
-    }
-    .toggle {
-      position: fixed;
-      top: 10px;
-      right: 10px;
-      padding: 10px 20px;
-      background: rgba(0,0,0,0.5);
+    .telegram {
+      margin: 1rem;
+      padding: 0.75rem 1.5rem;
+      background-color: #0088cc;
+      color: white;
       border: none;
-      color: white;
-      cursor: pointer;
-      border-radius: 5px;
-      z-index: 10;
-    }
-    .tg-button {
-      display: block;
-      margin: 1rem auto;
-      background: #229ED9;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 5px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      width: fit-content;
+      box-shadow: 0 0 10px rgba(0, 136, 204, 0.6);
+      transition: background 0.3s;
     }
-    .effect-text {
-      text-align: center;
-      margin-top: 2rem;
-      font-size: 1.5rem;
-      text-shadow: 0 0 10px red;
+    .telegram:hover {
+      background-color: #0077b6;
     }
-    canvas {
-      display: block;
+    .theme-toggle {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background: #444;
+      border: none;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .audio-player {
       margin: 2rem auto;
-      background: #000;
+      max-width: 400px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+    .audio-player select, .audio-player input[type="range"] {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+    .audio-player audio {
+      width: 100%;
+      margin-top: 1rem;
     }
   </style>
 </head>
 <body>
-  <button class="toggle" onclick="toggleMode()">Toggle Light/Dark</button>
-  <header>shaslik1 Vibe</header>
+  <div class="container">
+    <h1>🔥 shaslik1 Vibe Zone 🔥</h1>
 
-  <a class="tg-button" href="https://t.me/Xbt1w" target="_blank">Message me on Telegram</a>
+    <div class="video-section">
+      <iframe src="https://www.youtube.com/embed/PqJXHi7oBNo" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/mmeLCAP74KA" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/aJ-AUIkBX_Y" allowfullscreen></iframe>
+    </div>
 
-  <div class="effect-text">Стояк Роналду Имба ❤️</div>
+    <a class="telegram" href="https://t.me/Xbt1w" target="_blank">Write me on Telegram</a>
 
-  <div class="videos">
-    <iframe src="https://www.youtube.com/embed/mmeLCAP74KA" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/PqJXHi7oBNo" allowfullscreen></iframe>
-    <iframe src="https://www.youtube.com/embed/aJ-AUIkBX_Y" allowfullscreen></iframe>
+    <div class="audio-player">
+      <label for="track">🎧 Choose a Track:</label>
+      <select id="track">
+        <option value="https://files.catbox.moe/b3l6z8.mp3">Track 1</option>
+        <option value="https://files.catbox.moe/6f7vw3.mp3">Track 2</option>
+        <option value="https://files.catbox.moe/mos9d6.mp3">Track 3</option>
+        <option value="https://files.catbox.moe/gn9abg.mp3">Track 4</option>
+        <option value="https://files.catbox.moe/2ff9uc.mp3">Track 5</option>
+        <option value="https://files.catbox.moe/svjup0.mp3">Six Days Remix</option>
+      </select>
+
+      <label for="volume">🔊 Volume:</label>
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="0.12">
+
+      <audio id="audio" controls autoplay loop></audio>
+    </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()">Toggle Light/Dark Mode</button>
   </div>
-
-  <div class="player">
-    <label for="trackSelect">Select a song:</label>
-    <select id="trackSelect" onchange="changeTrack()">
-      <option value="https://files.catbox.moe/b3l6z8.mp3">Track 1</option>
-      <option value="https://files.catbox.moe/6f7vw3.mp3">Track 2</option>
-      <option value="https://files.catbox.moe/mos9d6.mp3">Track 3</option>
-      <option value="https://files.catbox.moe/gn9abg.mp3">Track 4</option>
-      <option value="https://files.catbox.moe/2ff9uc.mp3">Track 5</option>
-      <option value="https://files.catbox.moe/svjup0.mp3">Track 6</option>
-    </select><br><br>
-    <audio id="audioPlayer" controls volume="0.12">
-      <source src="https://files.catbox.moe/b3l6z8.mp3" type="audio/mp3">
-      Your browser does not support the audio element.
-    </audio>
-  </div>
-
-  <canvas id="dinoCanvas" width="800" height="200"></canvas>
 
   <script>
-    function toggleMode() {
-      document.body.classList.toggle('light-mode');
-    }
+    const audio = document.getElementById('audio');
+    const track = document.getElementById('track');
+    const volume = document.getElementById('volume');
+    const body = document.body;
 
-    function changeTrack() {
-      const select = document.getElementById('trackSelect');
-      const player = document.getElementById('audioPlayer');
-      player.src = select.value;
-      player.play();
-    }
+    audio.src = track.value;
+    audio.volume = parseFloat(volume.value);
 
-    // Dino game loader
-    window.onload = function() {
-      const script = document.createElement('script');
-      script.src = "https://cdn.jsdelivr.net/npm/dinogame@latest/dist/dino.min.js";
-      document.body.appendChild(script);
-    };
+    track.addEventListener('change', () => {
+      audio.src = track.value;
+      audio.play();
+    });
+
+    volume.addEventListener('input', () => {
+      audio.volume = parseFloat(volume.value);
+    });
+
+    function toggleTheme() {
+      if (body.style.backgroundImage.includes('temnyi-kosmos')) {
+        body.style.backgroundImage = "url('https://images.unsplash.com/photo-1619252584172-a83a949b6efd?w=600&auto=format&fit=crop&q=60')";
+        body.style.color = 'black';
+      } else {
+        body.style.backgroundImage = "url('https://ybis.ru/wp-content/uploads/2023/09/temnyi-kosmos-66.webp')";
+        body.style.color = 'white';
+      }
+    }
   </script>
 </body>
 </html>
