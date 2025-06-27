@@ -1,221 +1,169 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>shaslik1 - Ultimate</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-  <!-- Dino game -->
-  <script src="https://cdn.jsdelivr.net/gh/chinchang/dino@latest/dino.min.js"></script>
-
+  <meta charset="UTF-8">
+  <title>Cosmic Vibe Player</title>
   <style>
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: url('https://ybis.ru/wp-content/uploads/2023/09/temnyi-kosmos-66.webp') no-repeat center center fixed;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://ybis.ru/wp-content/uploads/2023/09/temnyi-kosmos-66.webp');
       background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
       color: #fff;
       overflow-x: hidden;
     }
 
-    #particles-js {
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-
     h1 {
+      text-align: center;
       font-size: 3em;
-      margin-top: 60px;
-      color: #00ffff;
-      text-shadow: 0 0 10px #00ffff;
-      text-align: center;
+      text-shadow: 0 0 20px #ff00ff;
+      margin: 30px 0;
+      animation: glow 3s infinite;
     }
 
-    .floating-text {
-      position: fixed;
-      width: 100%;
-      text-align: center;
-      font-size: 1.5em;
-      color: #ff5ec9;
-      font-weight: bold;
-      text-shadow: 0 0 10px #ff5ec9, 0 0 20px #ff5ec9;
-      animation: float 4s ease-in-out infinite alternate;
-      pointer-events: none;
+    @keyframes glow {
+      0%, 100% { text-shadow: 0 0 20px #ff00ff; }
+      50% { text-shadow: 0 0 40px #00ffff; }
     }
 
-    .floating-text.top { top: 0; animation-name: floatTop; }
-    .floating-text.bottom { bottom: 0; animation-name: floatBottom; }
-
-    @keyframes floatTop {
-      0% { transform: translateY(-30px); opacity: 0.2; }
-      100% { transform: translateY(20px); opacity: 1; }
-    }
-
-    @keyframes floatBottom {
-      0% { transform: translateY(30px); opacity: 0.2; }
-      100% { transform: translateY(-20px); opacity: 1; }
-    }
-
-    .telegram-btn {
-      background-color: #0088cc;
-      color: #fff;
-      padding: 12px 28px;
-      border: none;
-      border-radius: 30px;
-      margin: 20px auto;
-      font-size: 1em;
-      cursor: pointer;
-      text-decoration: none;
-      display: block;
-      width: fit-content;
-      box-shadow: 0 0 10px #0088cc;
-    }
-
-    #music-btn {
-      background-color: #ff5ec9;
-      color: #fff;
-      padding: 12px 28px;
-      border-radius: 30px;
-      font-size: 1em;
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 0 10px #ff5ec9;
-      margin: 10px auto 30px;
-      display: block;
-    }
-
-    .video-section {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 40px;
-      padding: 40px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .video-card {
-      width: 360px;
+    .player {
+      max-width: 450px;
+      margin: 0 auto 40px auto;
       background: rgba(0, 0, 0, 0.6);
-      padding: 15px;
-      border-radius: 15px;
-      border: 2px solid #00ffff;
-      box-shadow: 0 0 15px #00ffff;
-      transition: transform 0.3s, box-shadow 0.3s;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00f2ff;
+      backdrop-filter: blur(10px);
     }
 
-    .video-card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ffffff;
+    .track-title {
+      text-align: center;
+      font-size: 1.3em;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    button {
+      background: #00f2ff;
+      border: none;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+      flex: 1;
+    }
+
+    button:hover {
+      background: #ff00ff;
+      color: white;
+    }
+
+    .volume-control {
+      display: flex;
+      align-items: center;
+      margin-top: 15px;
+      gap: 10px;
+    }
+
+    .volume-control input {
+      width: 100%;
     }
 
     iframe {
-      width: 100%;
-      height: 215px;
-      border: none;
-      border-radius: 10px;
-    }
-
-    .video-title {
-      margin-top: 10px;
-      font-size: 1.1em;
-    }
-
-    #dino-game {
-      margin: 60px auto;
-      width: 800px;
-      max-width: 95%;
-      background: #111;
-      border: 2px solid #00ffff;
+      display: block;
+      margin: 40px auto;
+      max-width: 90%;
+      width: 560px;
+      height: 315px;
       border-radius: 20px;
-      padding: 10px;
-      box-shadow: 0 0 15px #00ffff;
-    }
-
-    @media screen and (max-width: 768px) {
-      .video-card {
-        width: 90%;
-      }
+      box-shadow: 0 0 20px #fff;
+      border: none;
     }
   </style>
 </head>
 <body>
 
-  <div id="particles-js"></div>
+  <h1>Cosmic Vibe 🎶</h1>
 
-  <div class="floating-text top">💗 Стояк Роналду Имба 💗</div>
-  <div class="floating-text bottom">💗 Стояк Роналду Имба 💗</div>
+  <div class="player">
+    <div class="track-title" id="track-title">Loading...</div>
+    
+    <audio id="audio" autoplay></audio>
 
-  <h1>shaslik1</h1>
-
-  <a href="https://t.me/Xbt1w" target="_blank" class="telegram-btn">💬 Связаться в Telegram</a>
-
-  <button id="music-btn">🎵 Играть музыку</button>
-
-  <audio id="bgMusic" loop>
-    <source src="https://files.catbox.moe/svjup0.mp3" type="audio/mpeg" />
-  </audio>
-
-  <script>
-    const btn = document.getElementById('music-btn');
-    const audio = document.getElementById('bgMusic');
-    btn.addEventListener('click', () => {
-      audio.volume = 0.12;
-      audio.play();
-      btn.style.display = 'none';
-    });
-  </script>
-
-  <div class="video-section">
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/PqJXHi7oBNo" allowfullscreen></iframe>
-      <div class="video-title">🎯 s1mple in CS2 Prime</div>
+    <div class="volume-control">
+      <label for="volume">Volume:</label>
+      <input type="range" id="volume" min="0" max="1" step="0.01" value="0.12">
     </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/mmeLCAP74KA" allowfullscreen></iframe>
-      <div class="video-title">🐐 Cristiano Ronaldo 2018</div>
-    </div>
-    <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/aJ-AUIkBX_Y" allowfullscreen></iframe>
-      <div class="video-title">🥊 Mike Tyson Highlights</div>
+
+    <div class="controls">
+      <button onclick="prevTrack()">⏮ Prev</button>
+      <button onclick="togglePlayPause()">⏯ Play/Pause</button>
+      <button onclick="nextTrack()">⏭ Next</button>
     </div>
   </div>
 
-  <div id="dino-game"></div>
-  <script>
-    dino({
-      el: '#dino-game',
-      maxJumpHeight: 100,
-      obstacleInterval: 2000,
-      gravity: 1,
-      speed: 5
-    });
-  </script>
+  <!-- YouTube Videos -->
+  <iframe src="https://www.youtube.com/embed/PqJXHi7oBNo" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/mmeLCAP74KA" allowfullscreen></iframe>
+  <iframe src="https://www.youtube.com/embed/aJ-AUIkBX_Y" allowfullscreen></iframe>
 
   <script>
-    particlesJS('particles-js', {
-      particles: {
-        number: { value: 80, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffffff" },
-        shape: { type: "circle" },
-        opacity: { value: 0.5, random: true },
-        size: { value: 2, random: true },
-        move: {
-          enable: true,
-          speed: 1,
-          direction: "none",
-          random: false,
-          out_mode: "out"
-        }
+    const tracks = [
+      { title: "Travis x Utopia", url: "https://files.catbox.moe/b3l6z8.mp3" },
+      { title: "Drake - Search & Rescue", url: "https://files.catbox.moe/6f7vw3.mp3" },
+      { title: "Yeat x Outer Space", url: "https://files.catbox.moe/mos9d6.mp3" },
+      { title: "Futuristic Hype", url: "https://files.catbox.moe/gn9abg.mp3" },
+      { title: "Fast Vibe", url: "https://files.catbox.moe/2ff9uc.mp3" },
+      { title: "Six Days (Remix)", url: "https://files.catbox.moe/svjup0.mp3" }
+    ];
+
+    let currentTrack = 0;
+    const audio = document.getElementById("audio");
+    const title = document.getElementById("track-title");
+    const volumeSlider = document.getElementById("volume");
+
+    function loadTrack(index) {
+      audio.src = tracks[index].url;
+      title.textContent = tracks[index].title;
+      audio.play();
+    }
+
+    function prevTrack() {
+      currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
+      loadTrack(currentTrack);
+    }
+
+    function nextTrack() {
+      currentTrack = (currentTrack + 1) % tracks.length;
+      loadTrack(currentTrack);
+    }
+
+    function togglePlayPause() {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
       }
+    }
+
+    // Volume control
+    volumeSlider.addEventListener("input", () => {
+      audio.volume = volumeSlider.value;
     });
+
+    // Auto-load first track
+    loadTrack(currentTrack);
+    audio.volume = 0.12;
   </script>
 
 </body>
