@@ -1,86 +1,116 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>shaslik1</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
     body {
-      margin:0; padding:0;
-      font-family:'Orbitron',sans-serif;
-      color:#fff; text-align:center;
-      background:url('IMAGE_BG') center/cover no-repeat;
-      position:relative; overflow-x:hidden;
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #6e6e6e;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    .overlay {
-      background:rgba(0,0,0,0.5);
-      position:absolute; top:0; left:0; width:100%; height:100%;
+
+    header {
+      margin-top: 40px;
+      text-align: center;
     }
-    .container {
-      position:relative; z-index:1;
-      display:flex; flex-direction:column; align-items:center;
-      padding:60px 20px; gap:30px;
+
+    header h1 {
+      font-size: 3rem;
+      color: #00ffe1;
+      text-shadow: 0 0 10px #00ffe1;
     }
-    h1 { font-size:3rem; margin:0; text-shadow:0 0 15px #0ff; }
-    .btn {
-      padding:15px 30px; background:#0088cc; color:#fff;
-      font-size:1.2rem; border-radius:50px;
-      box-shadow:0 0 20px #0088cc; text-decoration:none;
-      transition:0.3s;
+
+    .telegram-button {
+      margin-top: 10px;
+      background: #0088cc;
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+      text-decoration: none;
+      display: inline-block;
     }
-    .btn:hover { background:#00aaff; box-shadow:0 0 40px #00aaff; }
-    .cards {
-      display:flex; flex-wrap:wrap; gap:20px; justify-content:center;
+
+    .telegram-button:hover {
+      background: #0077b3;
     }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px 0;
+      gap: 30px;
+    }
+
     .card {
-      background:rgba(255,255,255,0.1); border:2px solid #0ff;
-      border-radius:15px; overflow:hidden;
-      width:220px; transition:transform 0.3s;
+      background-color: #1e1e1e;
+      border: 2px solid #00ffe1;
+      border-radius: 15px;
+      padding: 20px;
+      width: 220px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      color: white;
     }
-    .card:hover { transform:scale(1.05) rotate(1deg); }
-    .card img { width:100%; display:block; }
-    .card p { margin:10px; font-size:1.1rem; text-shadow:0 0 5px #0ff; }
-    @media(max-width:600px){
-      h1 { font-size:2rem; }
-      .btn { font-size:1rem; }
-      .cards { flex-direction:column; }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00ffe1;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .card p {
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    footer {
+      padding: 20px;
+      font-size: 0.8rem;
+      color: #ccc;
     }
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
-  <div class="container">
+
+  <header>
     <h1>shaslik1</h1>
-    <a class="btn" href="https://t.me/Xbt1w" target="_blank">💬 Написать в Telegram</a>
-    <div class="cards">
-      <div class="card">
-        <img src="https://www.pngkit.com/png/detail/366-3668196_real-madrid-cristiano-ronaldo-2018.png" alt="Ronaldo prime">
-        <p>🐐 Cristiano Ronaldo (2018)</p>
-      </div>
-      <div class="card">
-        <img src="https://www.kindpng.com/picc/m/187-1870626_s1mple-the-best-csgo-player-right-now-s1mple.png" alt="s1mple prime">
-        <p>🎯 s1mple (CS2 прайм)</p>
-      </div>
-    </div>
-  </div>
+    <a href="https://t.me/your_username" class="telegram-button" target="_blank">💬 Contact via Telegram</a>
+  </header>
+
+  <section class="card-container">
+    <a class="card" href="https://www.youtube.com/watch?v=5ZZ8uUjJ0q8" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="Cristiano Ronaldo">
+      <p>🐐 Cristiano Ronaldo (2018 Highlights)</p>
+    </a>
+
+    <a class="card" href="https://www.youtube.com/watch?v=9WfUzBMRzDk" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/S1mple_IEM_Katowice_2020.jpg" alt="s1mple CS2">
+      <p>🎯 s1mple (CS2 Godlike Plays)</p>
+    </a>
+  </section>
+
+  <footer>
+    &copy; 2025 shaslik1 — All rights reserved.
+  </footer>
+
 </body>
 </html>
-<div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-  <!-- Ronaldo -->
-  <a href="https://www.youtube.com/watch?v=5ZZ8uUjJ0q8" target="_blank" style="text-decoration: none;">
-    <div style="border: 2px solid cyan; border-radius: 10px; padding: 10px; text-align: center; width: 200px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg" alt="Cristiano Ronaldo" style="width: 100%;">
-      <p style="color: white;">🐐 Cristiano Ronaldo (2018)</p>
-    </div>
-  </a>
-
-  <!-- S1mple -->
-  <a href="https://www.youtube.com/watch?v=9WfUzBMRzDk" target="_blank" style="text-decoration: none;">
-    <div style="border: 2px solid cyan; border-radius: 10px; padding: 10px; text-align: center; width: 200px;">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/S1mple_IEM_Katowice_2020.jpg" alt="s1mple" style="width: 100%;">
-      <p style="color: white;">🎯 s1mple (CS2 прайм)</p>
-    </div>
-  </a>
-</div>
 
