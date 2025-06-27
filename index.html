@@ -1,170 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Cosmic Vibe Player</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>shaslik1 Vibe</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-image: url('https://ybis.ru/wp-content/uploads/2023/09/temnyi-kosmos-66.webp');
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://ybis.ru/wp-content/uploads/2023/09/temnyi-kosmos-66.webp') no-repeat center center fixed;
       background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    h1 {
-      text-align: center;
-      font-size: 3em;
-      text-shadow: 0 0 20px #ff00ff;
-      margin: 30px 0;
-      animation: glow 3s infinite;
-    }
-
-    @keyframes glow {
-      0%, 100% { text-shadow: 0 0 20px #ff00ff; }
-      50% { text-shadow: 0 0 40px #00ffff; }
-    }
-
-    .player {
-      max-width: 450px;
-      margin: 0 auto 40px auto;
-      background: rgba(0, 0, 0, 0.6);
-      padding: 25px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px #00f2ff;
-      backdrop-filter: blur(10px);
-    }
-
-    .track-title {
-      text-align: center;
-      font-size: 1.3em;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
-    .controls {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-top: 15px;
-    }
-
-    button {
-      background: #00f2ff;
-      border: none;
-      color: black;
-      padding: 10px 20px;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: 0.3s;
-      flex: 1;
-    }
-
-    button:hover {
-      background: #ff00ff;
       color: white;
+      transition: background 0.5s, color 0.5s;
     }
-
-    .volume-control {
+    body.light-mode {
+      background: url('https://images.unsplash.com/photo-1619252584172-a83a949b6efd?w=600&auto=format&fit=crop&q=60') no-repeat center center fixed;
+      background-size: cover;
+      color: black;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+      font-size: 2rem;
+      font-weight: bold;
+      animation: flicker 2s infinite;
+    }
+    @keyframes flicker {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+    .videos {
       display: flex;
+      flex-direction: column;
+      gap: 2rem;
       align-items: center;
-      margin-top: 15px;
-      gap: 10px;
+      margin: 2rem 0;
     }
-
-    .volume-control input {
-      width: 100%;
-    }
-
     iframe {
-      display: block;
-      margin: 40px auto;
-      max-width: 90%;
-      width: 560px;
+      width: 90%;
+      max-width: 600px;
       height: 315px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.5);
+    }
+    .player {
+      text-align: center;
+      margin: 2rem;
+    }
+    .player audio {
+      width: 80%;
+    }
+    .toggle {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      background: rgba(0,0,0,0.5);
       border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      z-index: 10;
+    }
+    .tg-button {
+      display: block;
+      margin: 1rem auto;
+      background: #229ED9;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
+    }
+    .effect-text {
+      text-align: center;
+      margin-top: 2rem;
+      font-size: 1.5rem;
+      text-shadow: 0 0 10px red;
+    }
+    canvas {
+      display: block;
+      margin: 2rem auto;
+      background: #000;
     }
   </style>
 </head>
 <body>
+  <button class="toggle" onclick="toggleMode()">Toggle Light/Dark</button>
+  <header>shaslik1 Vibe</header>
 
-  <h1>Cosmic Vibe 🎶</h1>
+  <a class="tg-button" href="https://t.me/Xbt1w" target="_blank">Message me on Telegram</a>
 
-  <div class="player">
-    <div class="track-title" id="track-title">Loading...</div>
-    
-    <audio id="audio" autoplay></audio>
+  <div class="effect-text">Стояк Роналду Имба ❤️</div>
 
-    <div class="volume-control">
-      <label for="volume">Volume:</label>
-      <input type="range" id="volume" min="0" max="1" step="0.01" value="0.12">
-    </div>
-
-    <div class="controls">
-      <button onclick="prevTrack()">⏮ Prev</button>
-      <button onclick="togglePlayPause()">⏯ Play/Pause</button>
-      <button onclick="nextTrack()">⏭ Next</button>
-    </div>
+  <div class="videos">
+    <iframe src="https://www.youtube.com/embed/mmeLCAP74KA" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/PqJXHi7oBNo" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/aJ-AUIkBX_Y" allowfullscreen></iframe>
   </div>
 
-  <!-- YouTube Videos -->
-  <iframe src="https://www.youtube.com/embed/PqJXHi7oBNo" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/mmeLCAP74KA" allowfullscreen></iframe>
-  <iframe src="https://www.youtube.com/embed/aJ-AUIkBX_Y" allowfullscreen></iframe>
+  <div class="player">
+    <label for="trackSelect">Select a song:</label>
+    <select id="trackSelect" onchange="changeTrack()">
+      <option value="https://files.catbox.moe/b3l6z8.mp3">Track 1</option>
+      <option value="https://files.catbox.moe/6f7vw3.mp3">Track 2</option>
+      <option value="https://files.catbox.moe/mos9d6.mp3">Track 3</option>
+      <option value="https://files.catbox.moe/gn9abg.mp3">Track 4</option>
+      <option value="https://files.catbox.moe/2ff9uc.mp3">Track 5</option>
+      <option value="https://files.catbox.moe/svjup0.mp3">Track 6</option>
+    </select><br><br>
+    <audio id="audioPlayer" controls volume="0.12">
+      <source src="https://files.catbox.moe/b3l6z8.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <canvas id="dinoCanvas" width="800" height="200"></canvas>
 
   <script>
-    const tracks = [
-      { title: "Travis x Utopia", url: "https://files.catbox.moe/b3l6z8.mp3" },
-      { title: "Drake - Search & Rescue", url: "https://files.catbox.moe/6f7vw3.mp3" },
-      { title: "Yeat x Outer Space", url: "https://files.catbox.moe/mos9d6.mp3" },
-      { title: "Futuristic Hype", url: "https://files.catbox.moe/gn9abg.mp3" },
-      { title: "Fast Vibe", url: "https://files.catbox.moe/2ff9uc.mp3" },
-      { title: "Six Days (Remix)", url: "https://files.catbox.moe/svjup0.mp3" }
-    ];
-
-    let currentTrack = 0;
-    const audio = document.getElementById("audio");
-    const title = document.getElementById("track-title");
-    const volumeSlider = document.getElementById("volume");
-
-    function loadTrack(index) {
-      audio.src = tracks[index].url;
-      title.textContent = tracks[index].title;
-      audio.play();
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
     }
 
-    function prevTrack() {
-      currentTrack = (currentTrack - 1 + tracks.length) % tracks.length;
-      loadTrack(currentTrack);
+    function changeTrack() {
+      const select = document.getElementById('trackSelect');
+      const player = document.getElementById('audioPlayer');
+      player.src = select.value;
+      player.play();
     }
 
-    function nextTrack() {
-      currentTrack = (currentTrack + 1) % tracks.length;
-      loadTrack(currentTrack);
-    }
-
-    function togglePlayPause() {
-      if (audio.paused) {
-        audio.play();
-      } else {
-        audio.pause();
-      }
-    }
-
-    // Volume control
-    volumeSlider.addEventListener("input", () => {
-      audio.volume = volumeSlider.value;
-    });
-
-    // Auto-load first track
-    loadTrack(currentTrack);
-    audio.volume = 0.12;
+    // Dino game loader
+    window.onload = function() {
+      const script = document.createElement('script');
+      script.src = "https://cdn.jsdelivr.net/npm/dinogame@latest/dist/dino.min.js";
+      document.body.appendChild(script);
+    };
   </script>
-
 </body>
 </html>
