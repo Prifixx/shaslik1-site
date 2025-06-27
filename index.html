@@ -14,13 +14,16 @@
       background-size: cover;
       color: #fff;
       text-align: center;
+      overflow-x: hidden;
     }
 
     h1 {
       font-size: 3em;
-      margin-top: 40px;
+      margin-top: 60px;
       color: #00ffff;
       text-shadow: 0 0 10px #00ffff;
+      z-index: 2;
+      position: relative;
     }
 
     .telegram-btn {
@@ -43,6 +46,8 @@
       flex-wrap: wrap;
       gap: 30px;
       padding: 40px;
+      z-index: 2;
+      position: relative;
     }
 
     .card {
@@ -72,6 +77,39 @@
       font-size: 1.1em;
     }
 
+    .floating-text {
+      position: fixed;
+      width: 100%;
+      text-align: center;
+      font-size: 1.5em;
+      color: #ff5ec9;
+      font-weight: bold;
+      text-shadow: 0 0 10px #ff5ec9, 0 0 20px #ff5ec9;
+      animation: float 5s ease-in-out infinite alternate;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .floating-text.top {
+      top: 0;
+      animation-name: floatTop;
+    }
+
+    .floating-text.bottom {
+      bottom: 0;
+      animation-name: floatBottom;
+    }
+
+    @keyframes floatTop {
+      0% { transform: translateY(-30px); opacity: 0.2; }
+      100% { transform: translateY(20px); opacity: 1; }
+    }
+
+    @keyframes floatBottom {
+      0% { transform: translateY(30px); opacity: 0.2; }
+      100% { transform: translateY(-20px); opacity: 1; }
+    }
+
     @media screen and (max-width: 600px) {
       .cards {
         flex-direction: column;
@@ -81,19 +119,37 @@
   </style>
 </head>
 <body>
+
+  <!-- Фоновая музыка -->
+  <audio id="bgMusic" autoplay loop>
+    <source src="https://files.catbox.moe/j9i4yo.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+  <script>
+    const audio = document.getElementById('bgMusic');
+    audio.volume = 0.1; // тихо
+  </script>
+
+  <!-- Анимированные надписи -->
+  <div class="floating-text top">💗 Стояк Роналду Имба 💗</div>
+  <div class="floating-text bottom">💗 Стояк Роналду Имба 💗</div>
+
   <h1>shaslik1</h1>
-  <a href="https://t.me/your_telegram" target="_blank" class="telegram-btn">💬 Contact on Telegram</a>
+  <a href="https://t.me/Xbt1w" target="_blank" class="telegram-btn">💬 Contact on Telegram</a>
 
   <div class="cards">
+    <!-- Карточка Роналду -->
     <a class="card" href="https://www.youtube.com/watch?v=mmeLCAP74KA" target="_blank">
       <img src="https://cdn.vox-cdn.com/thumbor/AX9ek3WvxtM6QkWmlShslpKyUQ4=/0x0:2730x4096/1200x0/filters:focal(0x0:2730x4096):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/24280171/1247992406.jpg" alt="Cristiano Ronaldo 2018" />
       <p>🐐 Cristiano Ronaldo (2018)</p>
     </a>
 
+    <!-- Карточка s1mple -->
     <a class="card" href="https://www.youtube.com/watch?v=PqJXHi7oBNo" target="_blank">
-      <img src="https://cdn.oneesports.gg/cdn-data/2023/03/CSGO_NAVI_s1mple_PGLMajorStockholm2021.jpg" alt="s1mple CS2 Prime" />
+      <img src="https://static.hltv.org/images/galleries/16903-medium/1703505110.7496.jpeg" alt="s1mple CS2 Prime" />
       <p>🎯 s1mple (CS2 Prime)</p>
     </a>
   </div>
+
 </body>
 </html>
