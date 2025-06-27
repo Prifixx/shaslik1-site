@@ -3,172 +3,151 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>shaslik1</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <title>shaslik1 Vibe Site</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
       font-family: 'Orbitron', sans-serif;
       background-image: url('https://ybis.ru/wp-content/uploads/2023/09/temnyi-kosmos-66.webp');
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       color: white;
-      overflow-x: hidden;
+      transition: background 0.5s, color 0.5s;
     }
 
-    .header {
+    .light-mode {
+      background-image: url('https://images.unsplash.com/photo-1619252584172-a83a949b6efd?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHdoaXRlJTIwd2FsbHBhcGVyfGVufDB8fDB8fHww');
+      color: black;
+    }
+
+    header {
+      padding: 20px;
       text-align: center;
-      padding-top: 40px;
+      font-size: 2.5rem;
+      position: relative;
     }
 
-    .nickname {
-      font-size: 40px;
-      text-transform: lowercase;
-    }
-
-    .telegram-button {
+    .telegram {
       display: inline-block;
       margin-top: 10px;
       background-color: #0088cc;
       color: white;
       padding: 10px 20px;
-      border-radius: 8px;
+      border-radius: 20px;
       text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s;
+      font-size: 1rem;
     }
 
-    .telegram-button:hover {
-      background-color: #0077b6;
-    }
-
-    .theme-toggle {
+    .toggle-btn {
       position: absolute;
       top: 20px;
       right: 20px;
-      background: white;
-      color: black;
+      background-color: rgba(255, 255, 255, 0.1);
       border: none;
+      color: white;
       padding: 10px;
-      border-radius: 8px;
       cursor: pointer;
-      font-weight: bold;
+      border-radius: 10px;
     }
 
-    .banner-text {
+    .section {
+      margin: 40px auto;
       text-align: center;
-      font-size: 28px;
-      margin: 30px 0;
-      animation: float 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes float {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-10px); }
-    }
-
-    .videos {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 30px;
-      padding: 20px;
     }
 
     iframe {
+      width: 90%;
+      max-width: 560px;
+      height: 315px;
       border: none;
-      border-radius: 12px;
+      margin: 20px auto;
     }
 
-    .player-container {
-      background: rgba(0, 0, 0, 0.6);
+    .player {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 15px;
       padding: 20px;
-      border-radius: 20px;
+      margin: 30px auto;
+      width: 90%;
       max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
     }
 
-    audio {
+    .player audio {
       width: 100%;
-      margin-top: 10px;
+      outline: none;
+    }
+
+    .vibe-text {
+      text-align: center;
+      font-size: 2rem;
+      animation: vibe 2s infinite alternate;
+      margin-top: 40px;
+    }
+
+    @keyframes vibe {
+      0% { transform: translateY(0); color: red; }
+      100% { transform: translateY(-10px); color: yellow; }
+    }
+
+    .anime-girl {
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      width: 150px;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
-  <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-  <div class="header">
-    <h1 class="nickname">shaslik1</h1>
-    <a class="telegram-button" href="https://t.me/Xbt1w" target="_blank">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" style="width:20px; vertical-align:middle; margin-right:5px;">
-      Write me
-    </a>
+  <header>
+    shaslik1
+    <div>
+      <a href="https://t.me/Xbt1w" class="telegram">Write in Telegram</a>
+    </div>
+    <button class="toggle-btn" onclick="toggleMode()">Toggle Theme</button>
+  </header>
+
+  <div class="vibe-text">Стояк Роналду — ИМБА ❤️</div>
+
+  <div class="section">
+    <h2>S1mple in his prime</h2>
+    <iframe src="https://www.youtube.com/embed/PqJXHi7oBNo" allowfullscreen></iframe>
+
+    <h2>Cristiano Ronaldo 2018</h2>
+    <iframe src="https://www.youtube.com/embed/mmeLCAP74KA" allowfullscreen></iframe>
+
+    <h2>Mike Tyson</h2>
+    <iframe src="https://www.youtube.com/embed/aJ-AUIkBX_Y" allowfullscreen></iframe>
   </div>
 
-  <div class="banner-text">❤️ стояк роналду — имба ❤️</div>
-
-  <div class="videos">
-    <iframe width="360" height="215" src="https://www.youtube.com/embed/PqJXHi7oBNo" allowfullscreen></iframe>
-    <iframe width="360" height="215" src="https://www.youtube.com/embed/mmeLCAP74KA" allowfullscreen></iframe>
-    <iframe width="360" height="215" src="https://www.youtube.com/embed/aJ-AUIkBX_Y" allowfullscreen></iframe>
-  </div>
-
-  <div class="player-container">
-    <h2>Spotify-style Player</h2>
-    <audio id="audioPlayer" controls>
+  <div class="player">
+    <h3>Now Playing</h3>
+    <audio id="audioPlayer" controls volume="0.12">
       <source src="https://files.catbox.moe/b3l6z8.mp3" type="audio/mpeg">
+      <source src="https://files.catbox.moe/6f7vw3.mp3" type="audio/mpeg">
+      <source src="https://files.catbox.moe/mos9d6.mp3" type="audio/mpeg">
+      <source src="https://files.catbox.moe/gn9abg.mp3" type="audio/mpeg">
+      <source src="https://files.catbox.moe/2ff9uc.mp3" type="audio/mpeg">
+      <source src="https://files.catbox.moe/svjup0.mp3" type="audio/mpeg">
       Your browser does not support the audio element.
     </audio>
-    <div style="margin-top:10px">
-      <button onclick="prevSong()">⏮</button>
-      <button onclick="playPause()">▶️/⏸</button>
-      <button onclick="nextSong()">⏭</button>
-      <input type="range" id="volumeSlider" min="0" max="1" step="0.01" onchange="setVolume(this.value)" value="0.2">
-    </div>
   </div>
 
+  <img src="https://w7.pngwing.com/pngs/330/89/png-transparent-anime-girl-chibi-anime-girl-blue-haired-girl-illustration-black-hair-cartoons-cartoon-thumbnail.png" alt="anime girl" class="anime-girl" />
+
   <script>
-    let playlist = [
-      "https://files.catbox.moe/b3l6z8.mp3",
-      "https://files.catbox.moe/6f7vw3.mp3",
-      "https://files.catbox.moe/mos9d6.mp3",
-      "https://files.catbox.moe/gn9abg.mp3",
-      "https://files.catbox.moe/2ff9uc.mp3",
-      "https://files.catbox.moe/svjup0.mp3"
-    ];
-    let currentTrack = 0;
-    const audio = document.getElementById("audioPlayer");
-
-    function playPause() {
-      if (audio.paused) audio.play();
-      else audio.pause();
-    }
-
-    function nextSong() {
-      currentTrack = (currentTrack + 1) % playlist.length;
-      audio.src = playlist[currentTrack];
-      audio.play();
-    }
-
-    function prevSong() {
-      currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
-      audio.src = playlist[currentTrack];
-      audio.play();
-    }
-
-    function setVolume(value) {
-      audio.volume = value;
-    }
-
-    function toggleTheme() {
-      const body = document.body;
-      if (body.style.backgroundImage.includes("temnyi-kosmos")) {
-        body.style.backgroundImage = "url('https://images.unsplash.com/photo-1619252584172-a83a949b6efd?w=600&auto=format&fit=crop&q=60')";
-        body.style.color = 'black';
-      } else {
-        body.style.backgroundImage = "url('https://ybis.ru/wp-content/uploads/2023/09/temnyi-kosmos-66.webp')";
-        body.style.color = 'white';
-      }
+    function toggleMode() {
+      document.body.classList.toggle('light-mode');
     }
   </script>
 </body>
